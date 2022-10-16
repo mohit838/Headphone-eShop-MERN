@@ -21,3 +21,19 @@ FullStack Projects on HeadPhone e-Commerce Shop
 ## For Exact Packages Installation
 
     npm i --legacy-peer-deps
+
+## @babelrc
+
+> Create .babelrc and paste
+
+    {
+        "presets": ["@babel/preset-react"]
+    }
+
+> Install
+
+    yarn add @babel/core
+
+> Dev Install
+
+    yarn add @babel/preset-react -D
