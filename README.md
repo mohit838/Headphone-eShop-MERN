@@ -47,3 +47,11 @@ FullStack Projects on HeadPhone e-Commerce Shop
 > Second Step
 
     sanity init --coupon javascriptmastery2022
+
+> Sanity Manage Page
+
+    sanity manage
+
+> Sanity Start
+
+    sanity start
