@@ -37,3 +37,13 @@ FullStack Projects on HeadPhone e-Commerce Shop
 > Dev Install
 
     yarn add @babel/preset-react -D
+
+## Sanity Initialized
+
+> First Step
+
+    npm install -g @sanity/cli
+
+> Second Step
+
+    sanity init --coupon javascriptmastery2022
