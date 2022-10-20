@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { client, urlFor } from "./../../lib/client";
 
-const ProductDetails = () => {
+const ProductDetails = ({ product, products }) => {
+  const { image, name, details, price } = product;
+  const [index, setIndex] = useState(0);
+
   return (
     <div>
       <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <img src="" alt="" />
+            <img
+              src={urlFor(image && image[index])}
+              className="product-detail-image"
+            />
           </div>
         </div>
       </div>
@@ -15,17 +21,37 @@ const ProductDetails = () => {
   );
 };
 
-export const getServerSideProps = async () => {
-  // For Product
-  const query = '*[_type == "product"]';
+export const getStaticPaths = async () => {
+  const query = `*[_type == "product"] {
+      slug {
+        current
+      }
+    }
+    `;
+
   const products = await client.fetch(query);
 
-  // For Banner
-  const bannerQuery = '*[_type == "banner"]';
-  const bannerData = await client.fetch(bannerQuery);
+  const paths = products.map((product) => ({
+    params: {
+      slug: product.slug.current,
+    },
+  }));
 
   return {
-    props: { products, bannerData },
+    paths,
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps = async ({ params: { slug } }) => {
+  // For Product Slug
+  const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
+  const productQuery = '*[_type == "product"]';
+  const product = await client.fetch(query);
+  const products = await client.fetch(productQuery);
+
+  return {
+    props: { product, products },
   };
 };
 
