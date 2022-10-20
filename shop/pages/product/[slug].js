@@ -26,8 +26,7 @@ export const getStaticPaths = async () => {
       slug {
         current
       }
-    }
-    `;
+    }`;
 
   const products = await client.fetch(query);
 
