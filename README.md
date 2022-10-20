@@ -44,6 +44,8 @@ FullStack Projects on HeadPhone e-Commerce Shop
 
     npm install -g @sanity/cli
 
+    sanity upgrade
+
 > Second Step
 
     sanity init --coupon javascriptmastery2022
