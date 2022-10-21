@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import getStripe from "../lib/getStripe";
 import Link from "next/link";
 import {
   AiOutlineMinus,
@@ -8,10 +9,8 @@ import {
 } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import toast from "react-hot-toast";
-
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
-import getStripe from "../lib/getStripe";
 
 const Cart = () => {
   const cartRef = useRef();
@@ -37,11 +36,11 @@ const Cart = () => {
 
     if (response.statusCode === 500) return;
 
-    const data = await response.json();
+    const session = await response.json();
 
     toast.loading("Redirecting...");
 
-    stripe.redirectToCheckout({ sessionId: data.id });
+    stripe.redirectToCheckout({ sessionId: session.id });
   };
 
   return (
