@@ -57,3 +57,9 @@ FullStack Projects on HeadPhone e-Commerce Shop
 > Sanity Start
 
     sanity start
+
+## For '.env' File You Need To Add This Value In Your Root Folder
+
+> NEXT_PUBLIC_SANITY_TOKEN
+> NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+> NEXT_STRIPE_SECTECT_KEY
