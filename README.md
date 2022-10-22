@@ -46,7 +46,7 @@ FullStack Projects on HeadPhone e-Commerce Shop
 
     sanity upgrade
 
-> Second Step
+> Second Step (For First Time)
 
     sanity init --coupon javascriptmastery2022
 
@@ -56,6 +56,11 @@ FullStack Projects on HeadPhone e-Commerce Shop
 
 > Sanity Start
 
+    sanity start
+
+> Sanity Install (After Once Setup)
+
+    sanity install
     sanity start
 
 ## For '.env' File You Need To Add This Value In Your Root Folder
